@@ -18,7 +18,7 @@ Features:
 
 <hr>
 
-## "Personal-finance-manager" >> README.md
+## "Personal-finance-manager"
 git init
 git add README.md
 git commit -m "first commit"

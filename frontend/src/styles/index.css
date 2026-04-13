@@ -1,0 +1,291 @@
+/* ========================================
+   Styles Index - Export all style modules
+   Import this single file in App.js
+   ======================================== */
+
+/* Main stylesheet with all partials */
+@import url('./main.css');
+
+/* Re-export key variables for JS access if needed */
+/* Note: CSS variables are automatically available globally */
+
+/* ========================================
+   Theme Export Classes
+   Use these classes to access theme values from JS
+   ======================================== */
+
+.theme-vars {
+  /* Primary colors */
+  --export-primary: var(--primary);
+  --export-primary-dark: var(--primary-dark);
+  --export-primary-light: var(--primary-light);
+  --export-accent: var(--accent);
+
+  /* Semantic colors */
+  --export-success: var(--success);
+  --export-warning: var(--warning);
+  --export-danger: var(--danger);
+  --export-info: var(--info);
+
+  /* Background colors */
+  --export-bg-primary: var(--bg-primary);
+  --export-bg-secondary: var(--bg-secondary);
+  --export-bg-tertiary: var(--bg-tertiary);
+
+  /* Surface colors */
+  --export-surface: var(--surface);
+  --export-card: var(--card);
+
+  /* Text colors */
+  --export-text: var(--text);
+  --export-text-secondary: var(--text-secondary);
+  --export-text-muted: var(--text-muted);
+
+  /* Border */
+  --export-border: var(--border);
+
+  /* Shadows */
+  --export-shadow-sm: var(--shadow-sm);
+  --export-shadow-md: var(--shadow-md);
+  --export-shadow-lg: var(--shadow-lg);
+
+  /* Radius */
+  --export-radius-sm: var(--radius-sm);
+  --export-radius-md: var(--radius-md);
+  --export-radius-lg: var(--radius-lg);
+
+  /* Spacing */
+  --export-space-1: var(--space-1);
+  --export-space-2: var(--space-2);
+  --export-space-3: var(--space-3);
+  --export-space-4: var(--space-4);
+  --export-space-6: var(--space-6);
+  --export-space-8: var(--space-8);
+
+  /* Typography */
+  --export-text-xs: var(--text-xs);
+  --export-text-sm: var(--text-sm);
+  --export-text-base: var(--text-base);
+  --export-text-lg: var(--text-lg);
+  --export-text-xl: var(--text-xl);
+}
+
+/* ========================================
+   Utility Exports
+   ======================================== */
+
+/* Display utilities */
+.export-flex { display: flex; }
+.export-grid { display: grid; }
+.export-block { display: block; }
+.export-hidden { display: none; }
+
+/* Common patterns */
+.export-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.export-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.export-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.export-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+/* ========================================
+   Animation Keyframes (for JS use)
+   ======================================== */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* ========================================
+   Animation Classes
+   ======================================== */
+
+.animate-fade-in {
+  animation: fadeIn var(--transition-base) ease-out;
+}
+
+.animate-fade-out {
+  animation: fadeOut var(--transition-base) ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp var(--transition-base) ease-out;
+}
+
+.animate-slide-down {
+  animation: slideDown var(--transition-base) ease-out;
+}
+
+.animate-slide-left {
+  animation: slideInLeft var(--transition-base) ease-out;
+}
+
+.animate-slide-right {
+  animation: slideInRight var(--transition-base) ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn var(--transition-base) ease-out;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-bounce {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* ========================================
+   Transition Classes
+   ======================================== */
+
+.transition-fast {
+  transition: all var(--transition-fast);
+}
+
+.transition-base {
+  transition: all var(--transition-base);
+}
+
+.transition-slow {
+  transition: all var(--transition-slow);
+}
+
+/* ========================================
+   Focus & Accessibility
+   ======================================== */
+
+.focus-ring:focus-visible {
+  outline: var(--focus-ring-width, 2px) solid var(--primary);
+  outline-offset: 2px;
+}
+
+.focus-ring:focus {
+  outline: var(--focus-ring-width, 2px) solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   Print Utilities
+   ======================================== */
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  /* Ensure proper contrast for printing */
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .card,
+  .btn {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+}
+
+/* ========================================
+   Debug Utilities (development only)
+   ======================================== */
+
+.debug * {
+  outline: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+.debug-outline {
+  outline: 2px dashed var(--danger);
+}
+
+.debug-bg {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 0, 0, 0.1),
+    rgba(255, 0, 0, 0.1) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}

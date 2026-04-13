@@ -1,0 +1,204 @@
+/* ========================================
+   Main Stylesheet - Personal Finance Manager
+   Imports all CSS partials in correct order
+   ======================================== */
+
+/* 1. CSS Variables - Must be first */
+@import url('./_variables.css');
+
+/* 2. Base Styles - Reset and foundation */
+@import url('./_base.css');
+
+/* 3. Utility Classes - Composable helpers */
+@import url('./_utilities.css');
+
+/* ========================================
+   Component-Specific Styles
+   ======================================== */
+
+/* Form Controls - High contrast for accessibility */
+.form-control,
+.form-select {
+  background-color: var(--card-strong);
+  color: var(--text-strong);
+  border-color: var(--border);
+}
+
+.form-control::placeholder,
+.form-select::placeholder {
+  color: var(--text-muted);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 20%, transparent);
+}
+
+/* Dark mode form adjustments */
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select {
+  background-color: var(--card-strong);
+  color: var(--text-strong);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .form-control::placeholder,
+[data-theme="dark"] .form-select::placeholder {
+  color: var(--text-muted);
+}
+
+/* Navbar specific styles */
+.navbar {
+  background: var(--glass);
+  backdrop-filter: var(--backdrop-blur);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+/* Card enhancements */
+.card-interactive {
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.card-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.card-interactive:active {
+  transform: translateY(0);
+}
+
+/* Status badges */
+.badge-soft {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  border-radius: var(--radius-full);
+}
+
+.badge-soft.success {
+  background: color-mix(in srgb, var(--success) 15%, transparent);
+  color: var(--success);
+}
+
+.badge-soft.warning {
+  background: color-mix(in srgb, var(--warning) 15%, transparent);
+  color: var(--warning);
+}
+
+.badge-soft.danger {
+  background: color-mix(in srgb, var(--danger) 15%, transparent);
+  color: var(--danger);
+}
+
+.badge-soft.info {
+  background: color-mix(in srgb, var(--info) 15%, transparent);
+  color: var(--info);
+}
+
+/* Loading spinner */
+.spinner-border {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 0.15em solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========================================
+   Responsive Breakpoints
+   ======================================== */
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 var(--space-3);
+  }
+
+  .main-content {
+    padding: var(--space-4);
+  }
+
+  /* Stack grid columns on mobile */
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Full width buttons on mobile */
+  .btn {
+    width: 100%;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .container {
+    max-width: 100%;
+    padding: 0 var(--space-6);
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1025px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+/* ========================================
+   High Contrast Mode
+   ======================================== */
+
+@media (prefers-contrast: high) {
+  :root {
+    --border-width: 2px;
+  }
+
+  .form-control,
+  .form-select {
+    border-width: 2px;
+  }
+
+  .btn {
+    border: 2px solid currentColor;
+  }
+
+  .card {
+    border-width: 2px;
+  }
+}
+
+/* ========================================
+   Dark Mode Print Support
+   ======================================== */
+
+@media print {
+  [data-theme="dark"] {
+    --text: #000000;
+    --text-strong: #000000;
+    --bg-primary: #ffffff;
+    --card: #ffffff;
+    --border: #cccccc;
+  }
+}

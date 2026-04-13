@@ -1,0 +1,41 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: pfm_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  api:
+    build: .
+    command: sh -c "python manage.py migrate && gunicorn finance_manager.wsgi:application --bind 0.0.0.0:8000 --workers 3"
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=pfm_db
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - SECRET_KEY=devkey
+      - DEBUG=True
+      - FRONTEND_URL=http://localhost:5173
+      - PFM_WEBHOOK_SECRET=dev-webhook-secret
+    depends_on:
+      - db
+      - redis
+
+volumes:
+  db_data:

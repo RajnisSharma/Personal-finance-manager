@@ -1,0 +1,124 @@
+.account-list-page,
+.account-form-page {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: var(--primary);
+  margin-bottom: 0.4rem;
+}
+
+.page-subtitle {
+  color: var(--text-light);
+  max-width: 60ch;
+}
+
+.account-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.account-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  gap: 1rem;
+}
+
+.account-card-top,
+.account-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.account-provider {
+  color: var(--text-light);
+  margin-bottom: 0.35rem;
+}
+
+.account-balance {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.account-balance strong {
+  font-size: 1.9rem;
+}
+
+.account-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.account-meta span {
+  display: block;
+  color: var(--text-light);
+  font-size: 0.82rem;
+}
+
+.status-pill {
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.8rem;
+  text-transform: capitalize;
+  background: color-mix(in srgb, var(--primary) 12%, white);
+  color: var(--primary-dark);
+}
+
+.status-manual {
+  background: color-mix(in srgb, var(--info) 12%, white);
+  color: var(--info);
+}
+
+.status-linked {
+  background: color-mix(in srgb, var(--success) 12%, white);
+  color: var(--success);
+}
+
+.status-pending {
+  background: color-mix(in srgb, var(--warning) 16%, white);
+  color: #9a6700;
+}
+
+.status-error,
+.status-revoked {
+  background: color-mix(in srgb, var(--danger) 12%, white);
+  color: var(--danger);
+}
+
+.empty-panel,
+.account-list-state,
+.account-form-state {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .page-header,
+  .account-card-top,
+  .account-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
